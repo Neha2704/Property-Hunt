@@ -6,7 +6,12 @@ const PropertySchema = new Schema({
 		type: String,
 		required: [true, 'ID is required']
 	},
-	name: {
+	// owner username
+	username: {
+		type: String,
+		required: true
+	},
+	propname: {
 		type: String
 	},
 	address: {
@@ -21,7 +26,7 @@ const PropertySchema = new Schema({
 	available: {	
 		type: Boolean,
 		default: true
-	},
+	}
 });
 
 const Property = mongoose.model('property', PropertySchema);
