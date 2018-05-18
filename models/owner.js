@@ -19,10 +19,8 @@ const OwnerSchema = new Schema({
 			type: String
 		}
 	},
-	properties: {
-		availablePropID: [String],
-		rentedPropID: [String]
-	}
+	availablePropID: [String],
+	rentedPropID: [String]
 });
 
 const Owner = mongoose.model('owner', OwnerSchema);
