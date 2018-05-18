@@ -22,10 +22,8 @@ const TenantSchema = new Schema({
 		complaint: String,
 		complaintPropID: String
 	},
-	properties: {
-		currentPropID: [String],
-		interestedPropID: [String]
-	}
+	currentPropID: [String],
+	interestedPropID: [String]
 });
 
 const Tenant = mongoose.model('tenant', TenantSchema);
