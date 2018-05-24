@@ -1,12 +1,13 @@
 # Property-hunt
 
-## Front end
+### Front end
 
 HTML, CSS
 
-## Back end
+### Back end
 
 Express, MongoDB
+
 
 > Following back-end functions are implemented successfully, using http requests:
 
@@ -23,6 +24,7 @@ Express, MongoDB
 - RAISE A COMPLAINT: TENANT 
 - RESOLVE A COMPLAINT: OWNER
 
+
 - [x] Three schemas for owner, tenant and property objects are defined.
 - [x] Passwords are stored using bcrypt.
 - [x] The username is saved in a session variable for login-persistence.
@@ -30,3 +32,8 @@ Express, MongoDB
 - [ ] Integrate front end and back end
 
 *Few sample inputs are provided in inputs.txt.*
+
+
+### Contributors
+- Vidisha Prasad
+- Neha Srivastava
