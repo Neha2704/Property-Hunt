@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="owner_profile_css.css">
+		<body>
+		<div class="tab">
+				<img src="avatar.png" class="avatar">
+				<form action="view_existing_owner.html">
+					<button class="tablinks">View Existing Properties</button>
+				</form>
+				
+				<form action="add_new.html">
+					<button class="tablinks">Add New Property</button>
+				</form>
+				
+				<form action="owner_notifications.html">			
+					<button class="tablinks">Notifications</button>
+				</form>
+				
+				<form action="complaints_owner.html">			
+					<button class="tablinks">Complaints</button>
+				</form>
+			</div>
+			<div class="signupbox">
+				<h1>Add New Property Here</h1>
+				<form action="/add_new" method="post">
+					<p>Owner Name</p>
+					<input type="text" name="prop_owner" placeholder="Enter your name">
+					<p>Property Type</p>
+					<input type="text" name="prop_type" placeholder="Residential or Commercial">
+					<p>Area in Sq. Ft.</p>
+					<input type="numeric" name="prop_area" placeholder="eg: 765sq. ft.">
+					<p>Property Located on Street</p>
+					<input type="text" name="prop_street" placeholder="Street Name or Number">
+					<p>Property Located in City</p>
+					<input type="text" name="prop_city" placeholder="Name of City">
+					<p>Property Located in State</p>
+					<input type="text" name="prop_state" placeholder="Name of State">
+					<p>Deposit Amount</p>
+					<input type="numeric" name="prop_deposit" placeholder="Enter Security Deposit Amount">
+					<p>Rent Per Month</p>
+					<input type="numeric" name="prop_rent" placeholder="Enter Rent Amount">
+					<p>Status</p>
+					<input type="text" name="prop_status" placeholder="Available or Occupied"> </br>
+					<button type="submit" name="" value="Sign-up">Sign up</button>
+				</form>
+			</div>
+		</body>
+	</head>
+</html>
