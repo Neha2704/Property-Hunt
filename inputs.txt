@@ -1,0 +1,36 @@
+/owner/signup
+
+{
+    "contactinfo" : {
+        "phone" : "9890374999",
+        "email" : "anuj@gmail.com"
+    },
+    "ownername" : "Anuj123",
+    "password" : "pass1",
+    "name" : "Anuj Srivastava"
+}
+
+
+/owner/login
+
+{
+    "ownername" : "Anuj123",
+    "password" : "pass1"
+}
+
+
+/property/add
+
+{
+    "address" : {
+        "street" : "Princeton Town",
+        "area" : "Kalyani Nagar",
+        "city" : "Pune"
+    },
+    "cost" : {
+        "deposit" : 50000,
+        "rent" : 10000
+    },
+    "propID" : "12345",
+    "propname" : "Anuj Apt1"
+}
