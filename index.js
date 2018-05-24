@@ -1,21 +1,26 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+var express = require('express');
+var bodyParser = require('body-parser');
+//const cookieParser = require('cookie-parser');
+var session = require('express-session');
+var mongoose = require('mongoose');
 
 //const routes = require('./routes/api');
 
 // set up express app, contains HTTP functions
-const app = express();
+var app = express();
 
 // connect to mongo
 mongoose.connect('mongodb://localhost/propertyhunt');
 mongoose.Promise = global.Promise;
 
 // front end
-//app.use(expess.static('./public'));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 // watch order of app.use(), its middleware to accept json data
 app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({extended: false}));
+//app.use(cookieParser());
+app.use(session({secret: "w7vdssbcd8ewtdbyx", resave: false, saveUninitializd: true}));
 
 // initialize routes
 app.use('/api', require('./routes/api'));
