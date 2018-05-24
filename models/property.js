@@ -4,12 +4,15 @@ const Schema = mongoose.Schema;
 const PropertySchema = new Schema({
 	propID: {
 		type: String,
-		required: [true, 'ID is required']
+		required: [true, 'ID is required'],
+		unique: true
 	},
-	// owner username
-	username: {
+	ownername: {
 		type: String,
 		required: true
+	},
+	tenantname: {
+		type: String
 	},
 	propname: {
 		type: String
@@ -26,7 +29,19 @@ const PropertySchema = new Schema({
 	available: {	
 		type: Boolean,
 		default: true
-	}
+	},
+	complaint: {
+		hasComplaint: {
+			type: Boolean,
+			default: false
+		},
+		contentComplaint: String
+	},
+	cost: {
+		deposit: Number,
+		rent: Number
+	},
+	interestedTenants: [String]
 });
 
 const Property = mongoose.model('property', PropertySchema);
