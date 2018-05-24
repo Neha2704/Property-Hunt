@@ -2,13 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const OwnerSchema = new Schema({
-	username: {
+	
+	// username
+	ownername: {
 		type: String,
-		required: [true, 'Username is required']
+		required: [true, 'Username is required'],
+		unique: true
 	},
 	password: {
 		type: String,
-		required: [true, 'Password is required']
+		//required: [true, 'Password is required']
+	},
+	name: {
+		type: String,
+		required: true
 	},
 	contactinfo: {
 		phone: {
