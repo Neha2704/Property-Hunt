@@ -4,6 +4,11 @@
 
 HTML, CSS
 
+#### Features
+
+- [x] Login, Sign-up, and Owner/Tenant profile views are implemented using HTTP forms.
+- [x] Redirection from one page to another.
+
 ## Back end
 
 Express, MongoDB
