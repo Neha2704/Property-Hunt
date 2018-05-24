@@ -1,51 +1,49 @@
-const mongoose=require('mongoose');
-const Schema=mongoose.Schema;
-//var fs = require(‘fs’);
-//const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const PropertySchema= new Schema({
-	prop_owner: {
+const PropertySchema = new Schema({
+	propID: {
 		type: String,
-		required: [true, 'Name field is required']
+		required: [true, 'ID is required'],
+		unique: true
 	},
-	prop_type: {
+	ownername: {
 		type: String,
-		required: [true, 'email field is required']
+		required: true
 	},
-	prop_area: {
-		type: Number,
-		required: [true, 'email field is required']
+	tenantname: {
+		type: String
 	},
-	prop_street: {
-		type: String,
-		required: [true, 'username field is required']
+	propname: {
+		type: String
 	},
-	prop_city: {
-		type: String,
-		required: [true, 'username field is required']
+	address: {
+		street: {
+			type: String,
+			//required: true
+		},
+		area: String,
+		city: String,
+		state: String
 	},
-	prop_state: {
-		type: String,
-		required: [true, 'username field is required']
+	available: {	
+		type: Boolean,
+		default: true
 	},
-	prop_deposit: {
-		type: Number,
-		required: [true, 'email field is required']
+	complaint: {
+		hasComplaint: {
+			type: Boolean,
+			default: false
+		},
+		contentComplaint: String
 	},
-	prop_rent: {
-		type: Number,
-		required: [true, 'email field is required']
+	cost: {
+		deposit: Number,
+		rent: Number
 	},
-	prop_status: {
-		type: String,
-		required: [true, 'email field is required']
-	}
-	/*prop_image: {
-		type: String,
-		required: [true, 'username field is required']
-	}*/
+	interestedTenants: [String]
 });
 
-const Property=mongoose.model('property', PropertySchema);
+const Property = mongoose.model('property', PropertySchema);
 
-module.exports=Property;
+module.exports = Property;
