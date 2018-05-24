@@ -1,10 +1,10 @@
-#Property-hunt
+# Property-hunt
 
-##Front end
+## Front end
 
 HTML, CSS
 
-##Back end
+## Back end
 
 Express, MongoDB
 
@@ -23,9 +23,10 @@ Express, MongoDB
 - RAISE A COMPLAINT: TENANT 
 - RESOLVE A COMPLAINT: OWNER
 
-[x] Three schemas for owner, tenant and property objects are defined.
-[x] Passwords are stored using bcrypt.
-[x] The username is saved in a session variable for login-persistence.
-[x] All relevant object variables across all collections are updated with each request.
+- [x] Three schemas for owner, tenant and property objects are defined.
+- [x] Passwords are stored using bcrypt.
+- [x] The username is saved in a session variable for login-persistence.
+- [x] All relevant object variables across all collections are updated with each request.
+- [ ] Integrate front end and back end
 
 *Few sample inputs are provided in inputs.txt.*
