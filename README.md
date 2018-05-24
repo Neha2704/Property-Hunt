@@ -9,7 +9,7 @@ HTML, CSS
 Express, MongoDB
 
 
-> Following back-end functions are implemented successfully, using http requests:
+#### Functions implemented, using http requests:
 
 - LOGIN
 - LOGOUT
@@ -25,7 +25,8 @@ Express, MongoDB
 - RAISE A COMPLAINT: TENANT 
 - RESOLVE A COMPLAINT: OWNER
 
- 
+#### Features
+
 - [x] Three schemas for owner, tenant and property objects are defined, with appropriate unique and required constraints.
 - [x] Passwords are encrypted and stored (using bcrypt).
 - [x] The username is saved in a session variable for login-persistence.
