@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({secret: "w7vdssbcd8ewtdbyx", resave: false, saveUninitializd: true}));
 
 // initialize routes
-app.use('/api', require('./routes/api'));
+app.use('/', require('./routes/api'));
 
 // error handling middleware
 app.use(function(err, req, res, next){
