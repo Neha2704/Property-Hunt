@@ -2,13 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TenantSchema = new Schema({
-	username: {
+	
+	// username
+	tenantname: {
 		type: String,
-		required: [true, 'Username is required']
+		required: [true, 'Username is required'],
+		unique: true
 	},
 	password: {
 		type: String,
 		required: [true, 'Password is required']
+	},
+	name: {
+		type: String,
+		required: true
 	},
 	contactinfo: {
 		phone: {
@@ -18,11 +25,7 @@ const TenantSchema = new Schema({
 			type: String
 		}
 	},
-	complaints: {
-		complaint: String,
-		complaintPropID: String
-	},
-	currentPropID: [String],
+	currentPropID: String,
 	interestedPropID: [String]
 });
 
