@@ -8,7 +8,8 @@ const Tenant = require('../models/tenant');
 const Property = require('../models/property');
 
 
-// replace all req.body.ownername occurences with req.session.ownername
+// replace all req.body.ownername occurences with req.session.ownername 
+// initialize session variable in login
 
 // LOGIN
 
