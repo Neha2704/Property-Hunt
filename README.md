@@ -32,11 +32,12 @@ Express, MongoDB
 
 #### Features
 
-- [x] Three schemas for owner, tenant and property objects are defined, with appropriate unique and required constraints.
+- [x] Three schemas for owner, tenant and property objects are defined (in models folder), with appropriate unique and required constraints.
 - [x] Passwords are encrypted and stored (using bcrypt).
 - [x] The username is saved in a session variable for login-persistence.
 - [x] All relevant object variables across all collections are updated with each request.
-- [ ] Integrate front end and back end
+- [x] All routes are defined in api.js (in routes folder).
+- [ ] Integrate front end and back end.
 
 
 *Few sample inputs are provided in inputs.txt.*
