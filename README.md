@@ -2,7 +2,7 @@ Property-hunt:
 Front end - HTML and CSS
 Back end - Express and MongoDB
 
-Following back-end functions are implemented successfully, using post, put and delete requests:
+Following back-end functions are implemented successfully, using http requests:
 
 // LOGIN
 // LOGOUT
