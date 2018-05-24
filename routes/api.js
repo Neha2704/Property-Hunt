@@ -265,10 +265,10 @@ router.delete('/property/remove', function(req, res, next){
 	// NOTE Tenant can rent only 1 property at a time
 	Tenant.findOne({currentPropID: req.body.propID}).then(function(tenant){
 
-		var currentPropID = tenant.currentPropID;
-		currentPropID.splice(currentPropID.indexOf(req.body.propID), 1);
+		//var currentPropID = tenant.currentPropID;
+		//currentPropID.splice(currentPropID.indexOf(req.body.propID), 1);
 
-		Tenant.updateOne({currentPropID: req.body.propID}, {currentPropID: currentPropID}).then(function(){
+		Tenant.updateOne({currentPropID: req.body.propID}, {currentPropID: null}).then(function(){
 			res.status(200).send();
 		});
 	});
