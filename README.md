@@ -1,7 +1,11 @@
 #Property-hunt
+
 ##Front end
+
 HTML, CSS
+
 ##Back end
+
 Express, MongoDB
 
 > Following back-end functions are implemented successfully, using http requests:
@@ -19,9 +23,9 @@ Express, MongoDB
 - RAISE A COMPLAINT: TENANT 
 - RESOLVE A COMPLAINT: OWNER
 
-Three schemas for owner, tenant and property objects are defined.
-Passwords are stored using bcrypt.
-The username is saved in a session variable for login-persistence.
-All relevant object variables across all collections are updated with each request.
+> Three schemas for owner, tenant and property objects are defined.
+> Passwords are stored using bcrypt.
+> The username is saved in a session variable for login-persistence.
+> All relevant object variables across all collections are updated with each request.
 
 *Few sample inputs are provided in inputs.txt.*
