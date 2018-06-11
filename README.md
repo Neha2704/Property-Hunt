@@ -39,6 +39,11 @@ Express, MongoDB
 - [x] All routes are defined in api.js (in routes folder).
 - [ ] Integrate front end and back end.
 
+#### Front End and Backend Integration
+-[x] Sign-up and login function for owner.
+-[x] Sign-up and login function for tenant.
+-[ ] Function implemented for viewing existing properties
+
 
 *Few sample inputs are provided in inputs.txt.*
 
