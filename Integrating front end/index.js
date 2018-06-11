@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser=require('body-parser'); 
 const mongoose=require('mongoose');
 var crypto = require('crypto');
+const bcrypt = require('bcrypt');
 
 // set up express app
 const app = express();
@@ -58,7 +59,6 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 app.post('/sign_up_owner' ,function(req,res){
 	var o_name = req.body.o_name;
 	var o_email= req.body.o_email;
-	//var o_contact= req.body.o_contact;
 	var o_username= req.body.o_username;
 	var o_password = req.body.o_password;
 		var o_contact= req.body.o_contact;
@@ -91,6 +91,44 @@ app.post('/sign_up_owner' ,function(req,res){
 	});
 	return res.redirect('/public/login_owner.html'); 
 });
+//login function for owner
+app.post('/login_owner',function(req,res){
+	var o_username=req.body.o_username;
+	var o_password=req.body.o_password;
+	//var o_cont='1234567890';
+	var o_password=getHash(o_password,o_username);
+	console.log(o_password);
+	var details={
+		"o_username": o_username,
+		"o_password": o_password
+	}
+	mongoose.connect(new_db, function(error,db){
+		if(error){
+			throw error;
+		}
+		console.log("connected to database successfully");
+		db.collection("owners").findOne({o_username: o_username}).then(function(owners){
+			
+			var hash = owners.o_password;
+			console.log(hash);
+			bcrypt.compare(o_password, hash, function(err, result) {
+				if(err) {
+					console.log(err);
+				} else if (result==true){
+					//req.session.o_username = o_username;
+					//res.status(200).send("Succesfully logged in!");
+					console.log("Authenticated");
+					return res.redirect('/public/owner_profile.html');
+				} else {
+					//req.session.o_username = null;
+					//res.status(401).send("Incorrect username or password.");
+					console.log("Incorrect username or password.");
+					return res.redirect('/public/login_owner.html');//unauthorized
+				}
+			});
+		});
+	})
+});
 
 // Sign-up function for tenant
 app.post('/sign_up_tenant' ,function(req,res){
@@ -98,7 +136,7 @@ app.post('/sign_up_tenant' ,function(req,res){
 	var t_email= req.body.t_email;
 	var t_username= req.body.t_username;
 	var t_password = req.body.t_password;
-	var t_contact= req.body.t_contact;
+		var t_contact= req.body.t_contact;
 	var t_password = getHash(t_password, t_contact);
 	
 	var data = {
@@ -128,8 +166,41 @@ app.post('/sign_up_tenant' ,function(req,res){
 	});
 	return res.redirect('/public/login_tenant.html'); 
 });
+//login function for tenant
+app.post('/login_tenant',function(req,res){
+	var t_username=req.body.t_username;
+	var t_password=req.body.t_password;
+	var t_password=getHash(t_password,t_username);
+	
+	var details={
+		"t_username": t_username,
+		"t_password": t_password
+	}
+	mongoose.connect(new_db, function(error,db){
+		if(error){
+			throw error;
+		}
+		console.log("connected to database successfully");
+		db.collection("tenants").findOne({t_username: t_username}).then(function(tenants){
+			
+			var hash = tenants.t_password;
+			console.log(hash);
+			bcrypt.compare(t_password, hash, function(err, result) {
+				if(err) {
+					console.log(err);
+				} else if (result==true){
+					console.log("Authenticated");
+					return res.redirect('/public/tenant_profile.html');
+				} else {
+					console.log("Incorrect username or password.");
+					return res.redirect('/public/login_tenant.html');//unauthorized
+				}
+			});
+		});
+	})
+});
 
-// Add new Property
+// Add new Property by owner
 app.post('/add_new' ,function(req,res){
 	var prop_owner = req.body.prop_owner;
 	var prop_type= req.body.prop_type;
@@ -184,9 +255,28 @@ app.get('/view_existing', function(req, res) {
 	var prop_deposit = req.param('prop_deposit');
 	var prop_rent= req.param('prop_rent');
 	var prop_status= req.param('prop_status'); 
+	
+	var data = {
+		"prop_owner": prop_owner,
+		"prop_type": prop_type,
+		"prop_area": prop_area,
+		"prop_street": prop_street,
+		"prop_city": prop_city,
+		"prop_state": prop_state,
+		"prop_deposit": prop_deposit,
+		"prop_rent": prop_rent,
+		"prop_status": prop_status
+	}
+	
+	mongoose.connect(new_db , function(error , db){
+		if (error){
+			throw error;
+		}
+		console.log("connected to database successfully");
+		db.collection("properties").find(data, (err , properties)).pretty();
+	});
+});
 
-  res.send(user_id + ' ' + token + ' ' + geo);
 // listen for requests
 /*app.listen(process.env.port || 5000, function(){
-    console.log('now listening for requests');
-});*/
+    console.log('now listening for requests');*/
